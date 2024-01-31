@@ -1,0 +1,28 @@
+{
+  "stduenet": [
+    {
+      "id": 8,
+      "studentName": "Rahul Kumar",
+      "studentClass": "12th",
+      "studentRollNo": "147"
+    },
+    {
+      "id": 9,
+      "studentName": "Arvind Kumar",
+      "studentClass": "10th",
+      "studentRollNo": "44"
+    },
+    {
+      "id": 10,
+      "studentName": "Ram Kumar",
+      "studentClass": "9th",
+      "studentRollNo": "123"
+    },
+    {
+      "id": 11,
+      "studentName": "Taj",
+      "studentClass": "12th",
+      "studentRollNo": "159"
+    }
+  ]
+}

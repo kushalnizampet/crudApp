@@ -1,0 +1,91 @@
+<app-header [progressBar]="progressBarSataus" [totalRecords]="totalRecordsOfStudent"></app-header>
+
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 mt-5">
+      <form (ngSubmit)="submitRecord()">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Student Managment</mat-card-title>
+            <mat-card-subtitle>Enter the required fileds</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row mt-3">
+              <div class="col-md-4">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Student Name</mat-label>
+                  <input [(ngModel)]="studentObj.studentName" name="studentName" matInput
+                    placeholder="Student Name">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Student Class</mat-label>
+                  <input [(ngModel)]="studentObj.studentClass" name="studentClass" matInput
+                    placeholder="Student Class">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Student RollNo</mat-label>
+                  <input [(ngModel)]="studentObj.studentRollNo" name="studentRollNo" matInput
+                    placeholder="Student RollNo">
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button type="submit" mat-raised-button *ngIf="submitBtn" color="primary">Submit</button>
+            <button type="button" (click)="updateRecords()" mat-raised-button *ngIf="updateBtn" color="warn">Update</button>
+            &nbsp;&nbsp;
+            <button type="button" (click)="clearForm()" mat-raised-button color="accent">Clear</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+  </div>
+
+  <!-- {{studentList | json}} -->
+
+  <!-- showing data in the tablur form -->
+  <div class="row mb-5">
+    <div class="col-md-10 offset-md-1 mt-3">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Student Records List</mat-card-title>
+         
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-bordered table-striped mt-3">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th>Student Name</th>
+                      <th>Student Class</th>
+                      <th>Student Rollnumber</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let data of studentList">
+                      <td>{{data.id}}</td>
+                      <td>{{data.studentName}}</td>
+                      <td>{{data.studentClass}}</td>
+                      <td>{{data.studentRollNo}}</td>
+                      <td>
+                        <span matTooltip="Delete" class='material-icons' style="color:red; cursor: pointer;" (click)="deleteData(data.id)">delete</span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span class="material-icons" style="cursor: pointer;" (click)="updateData(data)">edit</span>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br>
+<app-footer></app-footer>
